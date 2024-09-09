@@ -20,4 +20,4 @@ jobs:
         with:
           context: workers/standard
           push: true
-          tags: ${{ secrets.OCIR_HOME}}/sastandard:latest
+          tags: ${{ secrets.OCIR_REGISTRY }}/sastandard:latest
