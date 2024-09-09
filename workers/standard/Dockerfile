@@ -10,7 +10,6 @@ FROM debian:12-slim
 RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     ca-certificates && \
     rm -rf /var/lib/apt/lists/* \
-
 EXPOSE 8080
 WORKDIR /app
 COPY --from=builder /build/bin/collect /app/collect

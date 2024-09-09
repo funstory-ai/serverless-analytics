@@ -18,6 +18,7 @@ var (
 )
 
 func init() {
+	gin.SetMode(gin.ReleaseMode)
 	KAFKA_PASSWD = os.Getenv("KAFKA_PASSWD")
 	KAFKA_USER = os.Getenv("KAFKA_USER")
 	KAFKA_URL = os.Getenv("KAFKA_URL")
