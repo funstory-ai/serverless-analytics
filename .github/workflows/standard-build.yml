@@ -20,4 +20,4 @@ jobs:
         with:
           context: collector/selfhost
           push: true
-          tags: ${{ secrets.OCIR_REGISTRY }}/collector:${GITHUB_SHA::6}
+          tags: ${{ secrets.OCIR_REGISTRY }}/collector:${{ github.sha::7 }}
