@@ -18,6 +18,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: workers/standard
+          context: collector/selfhost
           push: true
-          tags: ${{ secrets.OCIR_REGIgSTRY }}/collect:${{ github.sha }}
+          tags: ${{ secrets.OCIR_REGISTRY }}/collector:${GITHUB_SHA::6}

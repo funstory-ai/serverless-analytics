@@ -1,4 +1,4 @@
-module github.com/funstory-ai/serverless-analytics/workers/standard
+module github.com/funstory-ai/serverless-analytics/collector/selfhost
 
 go 1.23.1
 
