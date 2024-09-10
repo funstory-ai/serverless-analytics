@@ -20,4 +20,4 @@ jobs:
         with:
           context: workers/standard
           push: true
-          tags: ${{ secrets.OCIR_REGIgSTRY }}/sastandard:{{ env.COMMIT_SHORT_SHA }}
+          tags: ${{ secrets.OCIR_REGIgSTRY }}/sastandard:${{ env.COMMIT_SHORT_SHA }}
