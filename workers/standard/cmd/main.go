@@ -17,6 +17,10 @@ var (
 	KAFKA_URL    string
 )
 
+const (
+	advertise_url = "http://0.0.0.0:8080"
+)
+
 func init() {
 	gin.SetMode(gin.ReleaseMode)
 	KAFKA_PASSWD = os.Getenv("KAFKA_PASSWD")
@@ -25,15 +29,14 @@ func init() {
 }
 
 type LogRequest struct {
-	Topic     string   `json:"topic"`
-	Logs      []string `json:"logs"`
-	Timestamp int64    `json:"timestamp"`
+	Subject string   `json:"subject"`
+	Logs    []string `json:"logs"`
 }
 
 func main() {
 	router := gin.Default()
 	router.POST("/collect", handleLog)
-	router.Run(":8080")
+	router.Run(advertise_url)
 }
 
 func handleLog(c *gin.Context) {
@@ -53,7 +56,7 @@ func handleLog(c *gin.Context) {
 		return
 	}
 	// sendToKafka(logRequest.Topic, logRequest.Logs)
-	if err := postToKafka(logRequest.Topic, logRequest.Logs); err != nil {
+	if err := postToKafka(logRequest.Subject, logRequest.Logs); err != nil {
 		c.JSON(500, gin.H{
 			"error": err.Error(),
 		})
